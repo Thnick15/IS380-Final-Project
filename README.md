@@ -83,3 +83,7 @@ Inventory Level: 248
 **
  <br /> Order is now ---> Closed
  <br /> Date Closed: 02-APR-2018
+ 
+  <h3 align="left">Program 3. QueryPO.sql</h4>
+  
+  **QueryPO.dql** is a program to look up details of the order. In other words, the user enters the order number, and details of the order are displayed, like the following:
