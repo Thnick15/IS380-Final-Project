@@ -1,0 +1,46 @@
+SQL> describe purchaseorders;
+ Name                                   Null?    Type
+ -------------------------------------- -------- --------------------------
+ PURORDNUM                              NOT NULL NUMBER(8)
+ PURORDDATE                                      DATE
+ PNUM                                            VARCHAR2(3)
+ SNUM                                            VARCHAR2(3)
+ UNITPRICE                                       NUMBER(5,2)
+ ORDQTY                                          VARCHAR2(8)
+ ORDAMT                                          NUMBER(8)
+ SHIPDATE                                        DATE
+ SHIPQTY                                         NUMBER(6)
+ SHIPAMT                                         NUMBER(10)
+ STATUS                                          VARCHAR2(8)
+
+SQL> describe pricelist;
+ Name                                   Null?    Type
+ -------------------------------------- -------- --------------------------
+ PNUM                                   NOT NULL VARCHAR2(3)
+ SNUM                                   NOT NULL VARCHAR2(3)
+ UNITPRICE                                       NUMBER(5,2)
+
+SQL> describe suppliers;
+ Name                                   Null?    Type
+ -------------------------------------- -------- --------------------------
+ SNUM                                   NOT NULL VARCHAR2(3)
+ SNAME                                           VARCHAR2(25)
+ SADDRESS                                        VARCHAR2(25)
+ SCITY                                           VARCHAR2(25)
+ SSTATE                                          VARCHAR2(5)
+ SZIP                                            NUMBER(10)
+ SPHONE                                          NUMBER(15)
+
+SQL> describe products;
+ Name                                   Null?    Type
+ -------------------------------------- -------- --------------------------
+ PNUM                                   NOT NULL VARCHAR2(3)
+ PDESC                                           VARCHAR2(25)
+ INV                                             NUMBER(10)
+
+SQL> describe counter;
+ Name                                   Null?    Type
+ -------------------------------------- -------- --------------------------
+ MAXNUM                                 NOT NULL NUMBER(5)
+
+SQL> spool off
