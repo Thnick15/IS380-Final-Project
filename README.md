@@ -52,3 +52,34 @@ Please select from one of the following Authorized Suppliers:
  
  <ins>Note 1:</ins> Since the unit price may change over time, you should store t he unit price and amoutn information under each order.
  <br /><ins>Note 2:</ins> In terms of screen out, you do not need to match spacing exactly, but you do need to display all information in reasonable format.
+ 
+ <h3 align="left">Program 2. ReceivePO.sql</h4>
+ 
+ When the ordered items arrive at our facility, the user would run the program **ReceivePO.sql** to reflect this transaction. The user enters the order number, the system displays all the details of that order. The program then asks the user how many units are actually received, and display the amount due based on the received units. Product inventory level is calculated. The order is now 'C'losed.
+ 
+ 
+**SQL> start f:receivepo.sql**
+
+********* R E C E I V E    O R D E R *********
+
+Today's Date: 02-APR-2018
+
+Please enter the Purchase Order Number: <ins>**1001**</ins>
+
+ <br /> Order Number: 1001
+ <br /> Item Number: p1
+ <br /> Item Description: Pencil
+ <br /> Supplier Number: s3
+ <br /> Supplier Name: Office Max
+ <br /> Date ordered: 22-MAR-2018
+ <br /> Today's date: 02-APR-2018
+ <br /> Unit Price: $2.00
+ <br /> Amount Ordered: $40.00
+
+Enter quantity received: <ins>**18**</ins>
+Amount Due: $36.00
+Inventory Level: 248
+
+**
+ <br /> Order is now ---> Closed
+ <br /> Date Closed: 02-APR-2018
