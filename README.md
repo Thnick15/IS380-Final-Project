@@ -1,5 +1,3 @@
-*.sql linguist-language=sql
-
 <h2 align="center">IS380 Final Project</h4>
 
 <h4 align="center">California State University, Long Beach</h4>
