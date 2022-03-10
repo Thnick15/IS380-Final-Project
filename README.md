@@ -31,10 +31,12 @@ Enter the Item Number: <ins>**p1**</ins>
   <br />Current Inventory Level: 230
 
 Please select from one of the following Authorized Suppliers:
- <br /> SNUM  SNAME     LOCATION   UnitPrice
- <br /> -----    --------- ---------  ----------
- <br /> s1  Staples Palmdale, CA  $2.50
- <br /> s3  Office Max  Long Beach, CA  $2.00
+```
+SNUM  SNAME     LOCATION        UnitPrice
+----- --------- --------------  ----------
+s1  Staples     Palmdale, CA    $2.50
+s3  Office Max  Long Beach, CA  $2.00
+```
  
  Enter the Supplier Number: <ins>**s3**</ins>
  <br /> Supplier Name: Office Max
@@ -77,8 +79,8 @@ Please enter the Purchase Order Number: <ins>**1001**</ins>
  <br /> Amount Ordered: $40.00
 
 Enter quantity received: <ins>**18**</ins>
-Amount Due: $36.00
-Inventory Level: 248
+ <br /> Amount Due: $36.00
+ <br /> Inventory Level: 248
 
 **
  <br /> Order is now ---> Closed
@@ -87,3 +89,84 @@ Inventory Level: 248
   <h3 align="left">Program 3. QueryPO.sql</h4>
   
   **QueryPO.dql** is a program to look up details of the order. In other words, the user enters the order number, and details of the order are displayed, like the following:
+
+**SQL> start f:querypo.sql**
+
+********* Q U E R Y    O R D E R *********
+
+Please enter the Purchase Order Number: <ins>**1001**</ins>
+
+ <br /> Purchase Order Number: 1001
+ <br /> Item Number: p1
+ <br /> Item Description: Pencil
+ <br /> Current Inventory Level: 248
+ <br /> Supplier Number: s3
+ <br /> Supplier Name: Office Max
+ <br /> Date ordered: 22-MAR-2018
+ <br /> Quantity Ordered: 20
+ <br /> Date Received: 02-APR-2018
+ <br /> Unit Price: $2.00
+ <br /> Amount Ordered: $40.00
+ <br /> Amount Due: $36.00
+ 
+ Order Status: Closed
+ 
+ <h3 align="left">Program 4. Aging.sql</h4>
+ 
+ The management is concerned when orders have not been delivered for too long. This report displays orders have been Opened for x number of days and have not been closed (this is typically called the "aging" report). Please sort your report by the longest DaysOpen first. Here is a sample report:
+ 
+ **SQL> start f:aging.sql**
+
+********* PURCHASE ORDER AGING Report *********
+
+Today's Date: 4/2/2018
+
+Please enter number of days to query: <ins>**30**</ins>
+```
+PO    PO    Date      Prod   Product     Order Unit   Order   SNUM    SNAME        Days
+Numb  Stat  Open       Num   Description Qty   Price  Amount                       Open
+----  ----  ---------- ----  ----------- ---- -----   ------- ----- ------------- -----
+1008   O    2/11/2018  p1    Pencil      42    2.00    84.00   s2    Office Depot    50
+1010   O    2/19/2018  p5    Eraser      15    3.00    45.00   s1    Staples         42
+```
+
+ <h3 align="left">Program 5. ShortShip.sql</h4>
+ 
+ When the receiving units are less than the order units, this order is called "short ship". The management is concerned about short ships and would like to see a report of short ship orders. It is sorted by PO Number.
+ 
+**SQL> start f:shortship**
+
+********* SHORT SHIP Report *********
+
+Today's Date: 4/2/2018
+
+Please enter number of days to query: <ins>**30**</ins>
+```
+PO    PO     Date       Prod  Product     Order Receive Short    SNUM  SNAME       
+Numb  Status Open       Num   Description Qty   Qty     Qty                     
+----  ----   ---------- ----  ----------- ---- ------  -------  ----- ---------------
+1842   C     03/04/2018  p1    Pencil      42    35       7       s2   Office Depot
+1851   C     03/06/2018  p5    Eraser      15    14       1       s1   Staples
+1864   C     03/07/2018  p3    Marker      120   100     20       s2   Office Depot
+```
+
+<h3 align="left">Program 6. SupplierMonthly.sql</h4>
+
+This program displays number of orders, total units and amount according to each supplier and the month/year of the order open date. In other words, for each supplier and each month/year, the management wants to see the number of orders, total units, and total amount. The following is a sample report:
+
+**SQL> start f:SupplierMonthly**
+
+********* SUPPLIER MONTHLY Report *********
+
+```
+Supplier  Supplier     Order      No of     Total   Total     
+Number    Name         Month      Orders    Units   Amount                        
+-------  ----------   ---------- -------  -------  --------
+s1       Staples      01/2018      48      4,509    $19,394
+s1       Staples      02/2018      39      3,293    $17409
+s1       Staples      03/2018      84      9,283    $46,594
+...
+s2       Office Depot 01/2018      15      1,663    $ 5,394
+s2       Office Depot 02/2018      22      2,608    $10,283
+
+```
